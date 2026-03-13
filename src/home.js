@@ -1,5 +1,6 @@
-export function home() {
-    document.addEventListener('DOMContentLoaded', () => {
-        console.log("Home page loaded and script running!");
-    });
+export function buildHomePage() {
+    const content = document.querySelector("#content");
+    const p = document.createElement("p");
+    p.textContent = "Testing!!!";
+    content.appendChild(p);
 };

@@ -1,23 +1,31 @@
 import "./styles.css";
-import { home } from "./home.js";
-import { menu } from "./menu.js";
-import { about } from "./about.js";
+import { buildHomePage } from "./home.js";
+import { buildMenuPage } from "./menu.js";
+import { buildAboutPage } from "./about.js";
 
-home();
-menu();
-about();
+buildHomePage();
 
+let currentPage = "home-button";
 const navButtons = document.querySelectorAll("nav > button");
+
+function checkCurrentPage (button) {
+    if (currentPage !== button) {
+        switch (button) {
+            case "home-button":
+                currentPage = "home-button";
+                return buildHomePage();
+            case "menu-button":
+                currentPage = "menu-button";
+                return buildMenuPage();
+            case "about-button":
+                currentPage = "about-button";
+                return buildAboutPage();
+        };
+    };
+};
 
 navButtons.forEach((button) =>
     button.addEventListener("click", () => {
-        switch(button.id) {
-            case "home-button":
-                return console.log("home button pressed");
-            case "menu-button":
-                return console.log("menu button pressed");
-            case "about-button":
-                return console.log("about button pressed");
-        };
+        checkCurrentPage(button.id);
     })
 );
