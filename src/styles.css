@@ -77,3 +77,15 @@ nav > button {
     border: 5px outset;
     border-radius: 5px;
 }
+
+#content {
+    width: 70ch;
+}
+
+hr {
+    width: 80%;
+    height: 2px;
+    background-color: black;
+    border: none;
+    margin: 20px auto;
+}
